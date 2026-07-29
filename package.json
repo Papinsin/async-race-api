@@ -1,0 +1,30 @@
+{
+  "name": "async-race-api",
+  "version": "1.0.0",
+  "description": "Fun with promises",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "node index.js",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "author": "mikhama",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "json-server": "^0.16.3",
+    "prettier": "3.9.6",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
