@@ -7,23 +7,49 @@ const FormCars = () => {
   let [carColor, setCarColor] = useState("#22233");
   const {carsArray ,setCarsArray} = useContext(CarArrayContext)
 
-  function makeCarFromData(name: string, color: string) {
-    let newCar = {
-        id: Math.random()*100,
-        name: name,
-        speed: 1,
+  const coreUrl = `http://localhost:3000`
+
+  async function makeCarFromData(name: string, color: string) {
+  try {
+    const res = await fetch(`${coreUrl}/garage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, color }),
+    });
+    if (!res.ok) throw new Error(await res.text());
+
+    const createdCar: { id: number; name: string; color: string } = await res.json();
+
+    setCarsArray((prev) => [
+      ...prev,
+      {
+        ...createdCar,
+        speed: 0,
         selected: false,
-        color: color,
-        position:0,
+        position: 0,
         state: false,
-        stopCar:false,
-    }
-    setCarsArray((prev)=>{
-      return [...prev , newCar]
-   } )
-    
+        stopCar: false,
+      },
+    ]);
+  } catch (error) {
+    console.log(error);
   }
+}
   return (
+
+    //     <form
+    //   action="/"
+    //   method="get"
+    //   onSubmit={(e) => {
+    //     e.preventDefault();
+    //     makeCarFromData(carName, carColor);
+    //   }}
+    // >
+    //   {/* ... */}
+    //   <button type="submit" className="...">
+    //     Submit
+    //   </button>
+    // </form>
     <div className="form_container">
       <form action="/" method="get" onSubmit={(e) => e.preventDefault()}>
         <div className="flex items-center justify-between font-mono text-[20px] font-black text-slate-400 gap-4">

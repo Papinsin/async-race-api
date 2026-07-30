@@ -134,7 +134,7 @@ export default function App() {
         }
 
         racingCarsRef.current = racingCarsRef.current.filter((id) => id !== startedCarID);
-        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length > 1) {
+        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length >= 1) {
           setTimeout(() => setShowModal(true), 4000);
         }
       }
