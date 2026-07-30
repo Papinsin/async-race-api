@@ -31,12 +31,15 @@ const Cars = (car: CarsInterface): JSX.Element => {
           <button
             onClick={() => car.startSingleCarRace(car.id)}
             className="px-3 py-1.5 rounded border text-[18px] font-mono font-black tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 select-none bg-slate-900/90 border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-emerald-950/20 disabled:opacity-20 disabled:pointer-events-none"
+            disabled={car.state}
           >
             A
           </button>
-          <button className="px-3 py-1.5 rounded border text-[18px] font-mono font-black tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 select-none bg-slate-900/90 border-slate-800 text-slate-400 hover:text-red-800 hover:border-red-500/40 hover:bg-emerald-950/20 disabled:opacity-20 disabled:pointer-events-none"
+          <button 
           onClick={()=> car.stopSingleCar(car.id)}
-          
+          className="px-3 py-1.5 rounded border text-[18px] font-mono font-black tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 select-none bg-slate-900/90 border-slate-800 text-slate-400 hover:text-red-800 hover:border-red-500/40 hover:bg-emerald-950/20 disabled:opacity-20 disabled:pointer-events-none"
+          disabled={!car.state}
+
           >
             B
           </button>
@@ -53,7 +56,7 @@ const Cars = (car: CarsInterface): JSX.Element => {
         className="car_svg scale-150"
         style={{
           position: "relative",
-          left: car.position + "vw",
+          left: car.position  + "vw",
           transition: `1200ms`,
           zIndex: 1,
         }}
