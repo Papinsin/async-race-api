@@ -1,77 +1,51 @@
-# React + TypeScript + Vite
+# Async Race
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my SPA for the "Async Race" task. You can create cars, race them, and see who won.
 
-Currently, two official plugins are available:
+**Score: ___ / 400**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** _add link after deploying_
 
-## React Compiler
+## What I used
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React + TypeScript
+- React Router (for Garage / Winners pages)
+- Tailwind CSS
+- The provided backend mock: https://github.com/mikhama/async-race-api
 
-Note: This will impact Vite dev & build performances.
+## How to run it
 
-## Expanding the ESLint configuration
+First run the backend (needs to stay running):
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/mikhama/async-race-api.git
+cd async-race-api
+npm install
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then run this project:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
+
+## Checklist ___/400 pts
+
+- [x] Two views: Garage and Winners
+- [x] Garage view has name creation panel, race buttons, and car list
+- [x] Winners view has a table
+- [x] State doesn't reset when switching pages/views
+- [x] Can create a car (sends it to the server)
+- [x] Can delete a car (sends it to the server)
+- [x] Button that makes 100 random cars
+- [x] Buttons to select/remove a car, disabled while it's racing
+- [x] Winners show up in the table after a race
+- [x] Winners table has car icon, name, wins, best time
+- [x] Start engine button works and animates the car
+- [x] Stop engine button works and resets the car
+- [x] Start Race button (starts all cars on the page)
+- [x] Reset Race button
+- [x] Shows a winner popup at the end
+- [x] Buttons disable/enable correctly depending on car state
