@@ -12,7 +12,7 @@ export interface Car {
 }
 
 export interface CarsProps extends Car{
-  onSelect: (carID : number | string) => void,
+  onSelect: (carID : number | string , car:Car) => void,
 }
 
 interface CarContextType {

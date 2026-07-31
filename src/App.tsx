@@ -16,7 +16,7 @@ export default function App() {
   let [finishedCarsArray, setFinishedCarsArray] = useState<string[]>([]);
   let [isRacing, setIsRacing] = useState<boolean>(false);
 
-  let [postPerPage, setPostPerPage] = useState(4);
+  let [postPerPage, setPostPerPage] = useState(7);
   let lastPage = Math.ceil(carsArray.length / postPerPage);
 
   let [currentPage, setCurrentPage] = useState(1);
@@ -144,7 +144,7 @@ export default function App() {
         }
 
         racingCarsRef.current = racingCarsRef.current.filter((id) => id !== startedCarID);
-        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length > 1) {
+        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length >= 1) {
           setTimeout(() => setShowModal(true), 4000);
         }
       }
@@ -232,7 +232,8 @@ export default function App() {
   }
 }
 
-  function onSelect(carID: number | string) {
+  function onSelect(carID: number | string, car:Car) {
+    if(car.state) return
     setCarsArray((prev) => {
       return prev.map((car) => {
         return {
@@ -243,7 +244,8 @@ export default function App() {
     });
   }
 
-  async function removeCar(CarID: number) {
+  async function removeCar(CarID: number , car :Car) {
+    if (car.state) return
     try {
       let res = await fetch(`${coreUrl}/garage/${CarID}`, {
         method: 'DELETE',

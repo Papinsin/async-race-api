@@ -11,7 +11,7 @@ interface CarsInterface extends CarsProps {
   speed: number;
   position: number; 
   stopCar:boolean;
-  removeCar: (CarID : number) =>void;
+  removeCar: (CarID : number, car: CarsProps) =>void;
   stopSingleCar: (CarID: number) => void ;
   startSingleCarRace: (startedCarID: number | string) => void;
 }
@@ -45,11 +45,17 @@ const Cars = (car: CarsInterface): JSX.Element => {
           </button>
         </div>
         <div className="flex flex-col car_setting_Btns">
-          <button className="bg-rose-950/40 text-rose-400 p-1"
-          onClick={()=> car.removeCar(car.id)}
-          >remove</button>
-          <button className="bg-purple-900/40 text-white p-1" 
-            onClick={()=>{ car.onSelect(car.id)}}>select</button>
+          <button className="bg-rose-950/40 text-rose-400 p-1 disabled:opacity-30 disabled:pointer-events-none"
+          disabled={car.state}
+          onClick={()=> car.removeCar(car.id , car)}>
+            remove
+          </button>
+          
+          <button
+           className="bg-purple-900/40 text-white p-1 disabled:opacity-30 disabled:pointer-events-none" 
+           disabled={car.state}
+            onClick={()=>{ car.onSelect(car.id , car)}}>select</button>
+            
         </div>
       </div>
       <div
