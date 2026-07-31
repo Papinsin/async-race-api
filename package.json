@@ -28,5 +28,10 @@
     "prettier": "3.9.6",
     "typescript": "^5.6.3",
     "vite": "^7.3.6"
+  },
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   }
 }
+
