@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Fun with promises",
   "type": "module",
-  "main": "index.js",
+  "main": "index.cjs",
+
+
   "scripts": {
     "dev": "vite",
-    "start": "node index.js",
+    "start": "node index.cjs",
     "build": "vite build",
     "preview": "vite preview"
   },
