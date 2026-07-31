@@ -23,7 +23,11 @@ cd async-race-api
 npm install
 npm start
 ```
+Then run the server :
 
+``` bash
+  node index.cjs
+```
 Then run this project:
 
 ```bash
