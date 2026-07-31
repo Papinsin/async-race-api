@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "start": "node index.js",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "author": "mikhama",
