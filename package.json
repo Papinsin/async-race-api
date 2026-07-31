@@ -32,6 +32,8 @@
   "compilerOptions": {
     "noUnusedLocals": false,
     "noUnusedParameters": false
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
-
