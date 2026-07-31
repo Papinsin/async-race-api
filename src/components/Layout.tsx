@@ -1,6 +1,3 @@
-  
-
-// src/components/Layout.tsx
 import React from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 import Winners from "../components/Winners.tsx"; // Adjust import path if needed
