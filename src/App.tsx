@@ -57,6 +57,7 @@ export default function App() {
     loadCars(coreUrl);
   }, []);
 
+
   async function  startSingleCarRace(startedCarID: number | string) {
     // if this car already has an interval running, clear it first so we never stack two loops on one car
     if (carIntervalsRef.current[startedCarID]) {
@@ -118,9 +119,18 @@ export default function App() {
         car.id === startedCarID ? { ...car, position: Track_length, state: false } : car
       )
     );
+    const timeInSeconds = (performance.now() - start) / 1000; 
+
+    if (finishedCarsRef.current.length === 0) {
+    // this is the first car to finish this race
+    recordWinner(startedCarID as number, timeInSeconds);
+    }
     finishedCarsRef.current.push(startedCarID as number);
     const car = carsArray.find((c) => c.id === startedCarID);
     if (car) setFinishedCarsArray((prev) => [...prev, car.name]);
+
+    recordWinner(startedCarID as number, timeInSeconds);
+
         }
       } catch (error) {
         console.log(error);
@@ -134,7 +144,7 @@ export default function App() {
         }
 
         racingCarsRef.current = racingCarsRef.current.filter((id) => id !== startedCarID);
-        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length >= 1) {
+        if (racingCarsRef.current.length === 0 && finishedCarsRef.current.length > 1) {
           setTimeout(() => setShowModal(true), 4000);
         }
       }
@@ -195,21 +205,32 @@ export default function App() {
     );
   }
 
-  function finishedRace(carName: string) {
-    setFinishedCarsArray((prev) => {
-      const nextFinishedCars = [...prev, carName];
-      let activeCarsCount = carsArray.filter((car) => car.state).length;
-      console.log(activeCarsCount);
 
-      if (nextFinishedCars.length === activeCarsCount && activeCarsCount > 0) {
-        setTimeout(() => {
-          setShowModal(true);
-          activeCarsCount = 0;
-        }, 2500);
-      }
-      return nextFinishedCars;
-    });
+  async function recordWinner(carId: number, time: number) {
+  try {
+    const res = await fetch(`${coreUrl}/winners/${carId}`);
+
+    if (res.ok) {
+      const existing: { wins: number; time: number } = await res.json();
+      await fetch(`${coreUrl}/winners/${carId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          wins: existing.wins + 1,
+          time: Math.min(existing.time, time),
+        }),
+      });
+    } else {
+      await fetch(`${coreUrl}/winners`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: carId, wins: 1, time }),
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
+}
 
   function onSelect(carID: number | string) {
     setCarsArray((prev) => {
@@ -222,7 +243,20 @@ export default function App() {
     });
   }
 
-  function removeCar(CarID: number) {
+  async function removeCar(CarID: number) {
+    try {
+      let res = await fetch(`${coreUrl}/garage/${CarID}`, {
+        method: 'DELETE',
+      });
+
+      if (!res.ok) throw new Error('failed to delete a car ')
+
+    } catch (error) {
+      console.log(error)
+      return
+    }
+    
+    
     setCarsArray((prev) => {
       return prev.filter((car) => car.id !== CarID);
     });
