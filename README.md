@@ -1,21 +1,20 @@
 # Async Race
-# https://epam-race-game.netlify.app/
-This is my SPA for the "Async Race" task. You can create cars, race them, and see who won.
 
-**Score: ___ / 400**
+- Live demo: https://epam-race-game.netlify.app/
+- Estimated score: 360 / 400
 
-**Live demo:** _add link after deploying_
+This is my frontend SPA for the Async Race task. It lets users create cars, edit them, start and stop engines, race them, and view the winners table.
 
 ## What I used
 
 - React + TypeScript
-- React Router (for Garage / Winners pages)
-- Tailwind CSS
+- React Router for Garage / Winners navigation
+- Vite
 - The provided backend mock: https://github.com/mikhama/async-race-api
 
 ## How to run it
 
-First run the backend (needs to stay running):
+First run the backend (it needs to stay running):
 
 ```bash
 git clone https://github.com/mikhama/async-race-api.git
@@ -23,11 +22,7 @@ cd async-race-api
 npm install
 npm start
 ```
-Then run the server :
 
-``` bash
-  node index.cjs
-```
 Then run this project:
 
 ```bash
@@ -35,21 +30,47 @@ npm install
 npm run dev
 ```
 
-## Checklist ___/400 pts
+## Checklist 360/400 pts
 
-- [x] Two views: Garage and Winners
-- [x] Garage view has name creation panel, race buttons, and car list
-- [x] Winners view has a table
-- [x] State doesn't reset when switching pages/views
-- [x] Can create a car (sends it to the server)
-- [x] Can delete a car (sends it to the server)
-- [x] Button that makes 100 random cars
-- [x] Buttons to select/remove a car, disabled while it's racing
-- [x] Winners show up in the table after a race
-- [x] Winners table has car icon, name, wins, best time
-- [x] Start engine button works and animates the car
-- [x] Stop engine button works and resets the car
-- [x] Start Race button (starts all cars on the page)
-- [x] Reset Race button
-- [x] Shows a winner popup at the end
-- [x] Buttons disable/enable correctly depending on car state
+### 🚀 UI Deployment
+- [x] Deployment Platform: UI is deployed on Netlify.
+
+### ✅ Requirements to Commits and Repository
+- [x] Commit guidelines compliance: commits follow a clear structure.
+- [x] Checklist included in README.md.
+- [x] Score calculation included at the top of the README.
+- [x] UI deployment link included in the README.
+
+### Basic Structure (80 points)
+- [x] Two Views
+- [x] Garage View Content
+- [x] Winners View Content
+- [x] Persistent State
+
+### Garage View (90 points)
+- [x] Car Creation And Editing Panel. CRUD Operations
+- [x] Color Selection
+- [x] Random Car Creation
+- [x] Car Management Buttons
+- [x] Pagination
+- [x] Empty Garage handling
+
+### Winners View (50 points)
+- [x] Display Winners
+- [x] Pagination for Winners
+- [x] Winners Table
+- [x] Sorting Functionality
+
+### Race (170 points)
+- [x] Start Engine Animation
+- [x] Stop Engine Animation
+- [x] Responsive Animation
+- [x] Start Race Button
+- [x] Reset Race Button
+- [x] Winner Announcement
+- [x] Button States
+- [x] Actions during the race
+
+### 🎨 Prettier and ESLint Configuration (10 points)
+- [x] Prettier Setup
+- [x] ESLint Configuration
