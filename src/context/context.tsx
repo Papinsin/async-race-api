@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export interface Car {
   id: number;
@@ -7,24 +7,21 @@ export interface Car {
   color: string;
   position: number;
   state: boolean;
-  selected: boolean,
-  stopCar:boolean,
+  selected: boolean;
+  stopCar: boolean;
 }
 
-export interface CarsProps extends Car{
-  onSelect: (carID : number | string , car:Car) => void,
+export interface CarsProps extends Car {
+  onSelect: (carID: number | string, car: Car) => void;
 }
 
 interface CarContextType {
-  carsArray: Car[] | undefined,
+  carsArray: Car[] | undefined;
   // Define it as a standard function that takes an array of Cars and returns nothing
-  setCarsArray: ( cars:Car[]| ((prev: Car[]) => Car[] )) => void
+  setCarsArray: (cars: Car[] | ((prev: Car[]) => Car[])) => void;
 }
 
 export const CarArrayContext = createContext<CarContextType>({
   carsArray: [],
   setCarsArray: () => {},
 });
-
-
-

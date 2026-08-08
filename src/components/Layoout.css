@@ -1,21 +1,21 @@
-main{
-    /* overflow: hidden; */
-    position: relative;
+main {
+  /* overflow: hidden; */
+  position: relative;
 }
-.finish_line{
-    top: 0;
-    left:95vw;
-    height: 100%;
-    position: absolute;
+.finish_line {
+  top: 0;
+  left: 95vw;
+  height: 100%;
+  position: absolute;
 }
 
-.finish_line::after{
-    position: absolute;
-    color: white;
-    transform-origin: center;
-    display:inline-block;
-    transform:rotate(90deg);
-    content: "Finish Line";
-    font-size: 30PX;
-    white-space: nowrap;
+.finish_line::after {
+  position: absolute;
+  color: white;
+  transform-origin: center;
+  display: inline-block;
+  transform: rotate(90deg);
+  content: 'Finish Line';
+  font-size: 30px;
+  white-space: nowrap;
 }

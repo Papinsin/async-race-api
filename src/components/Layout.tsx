@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink, Routes, Route } from "react-router-dom";
-import Winners from "../components/Winners.tsx"; // Adjust import path if needed
+import React from 'react';
+import { NavLink, Routes, Route } from 'react-router-dom';
+import Winners from '../components/Winners.tsx'; // Adjust import path if needed
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -15,7 +15,9 @@ export default function Layout({ children }: LayoutProps) {
           to="/"
           className={({ isActive }) =>
             `px-4 py-2 rounded-lg font-mono text-xs font-bold transition-all ${
-              isActive ? "bg-cyan-500 text-slate-900" : "bg-[#161830] text-slate-300 hover:text-white"
+              isActive
+                ? 'bg-cyan-500 text-slate-900'
+                : 'bg-[#161830] text-slate-300 hover:text-white'
             }`
           }
         >
@@ -25,7 +27,9 @@ export default function Layout({ children }: LayoutProps) {
           to="/winners"
           className={({ isActive }) =>
             `px-4 py-2 rounded-lg font-mono text-xs font-bold transition-all ${
-              isActive ? "bg-cyan-500 text-slate-900" : "bg-[#161830] text-slate-300 hover:text-white"
+              isActive
+                ? 'bg-cyan-500 text-slate-900'
+                : 'bg-[#161830] text-slate-300 hover:text-white'
             }`
           }
         >
@@ -38,7 +42,7 @@ export default function Layout({ children }: LayoutProps) {
         <Routes>
           {/* '/' renders the Garage content passed as children from App.tsx */}
           <Route path="/" element={<>{children}</>} />
-          
+
           {/* '/winners' renders the Winners component */}
           <Route path="/winners" element={<Winners />} />
         </Routes>

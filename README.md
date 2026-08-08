@@ -33,35 +33,41 @@ npm run dev
 ## Checklist 360/400 pts
 
 ### 🚀 UI Deployment
+
 - [x] Deployment Platform: UI is deployed on Netlify.
 
 ### ✅ Requirements to Commits and Repository
+
 - [x] Commit guidelines compliance: commits follow a clear structure.
 - [x] Checklist included in README.md.
 - [x] Score calculation included at the top of the README.
 - [x] UI deployment link included in the README.
 
 ### Basic Structure (80 points)
+
 - [x] Two Views
 - [x] Garage View Content
 - [x] Winners View Content
 - [x] Persistent State
 
 ### Garage View (90 points)
-- [x] Car Creation And Editing Panel. CRUD Operations
+
+- [ ] Car Creation And Editing Panel. CRUD Operations
 - [x] Color Selection
 - [x] Random Car Creation
 - [x] Car Management Buttons
 - [x] Pagination
-- [x] Empty Garage handling
+- [ ] Empty Garage handling
 
 ### Winners View (50 points)
+
 - [x] Display Winners
-- [x] Pagination for Winners
+- [ ] Pagination for Winners
 - [x] Winners Table
-- [x] Sorting Functionality
+- [ ] Sorting Functionality
 
 ### Race (170 points)
+
 - [x] Start Engine Animation
 - [x] Stop Engine Animation
 - [x] Responsive Animation
@@ -72,5 +78,6 @@ npm run dev
 - [x] Actions during the race
 
 ### 🎨 Prettier and ESLint Configuration (10 points)
+
 - [x] Prettier Setup
-- [x] ESLint Configuration
+- [ ] ESLint Configuration

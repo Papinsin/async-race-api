@@ -2,8 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import App from '../App.tsx';
 import Winners from '../components/Winners.tsx';
 
-
-
 export function AppRoutes() {
   return (
     <Routes>

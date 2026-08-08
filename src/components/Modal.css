@@ -1,30 +1,29 @@
-.modal-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(15, 23, 42, 0.3); /* Slate blue/black at 30% opacity */
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.3); /* Slate blue/black at 30% opacity */
   backdrop-filter: blur(8px);
   z-index: 2;
 }
-.modal_underlay{
-    /* margin: 0 auto; */
-    width: 50%;
-    height: 50vh;
+.modal_underlay {
+  /* margin: 0 auto; */
+  width: 50%;
+  height: 50vh;
   border: 1px solid white;
-    background-color: #181822;
-
+  background-color: #181822;
 }
-.modal__h1{
-    text-align: center;
-    font-size: 40px;
-    color: aliceblue;
+.modal__h1 {
+  text-align: center;
+  font-size: 40px;
+  color: aliceblue;
 }
 
 .finishedCars_list {
-    padding: 0;
+  padding: 0;
   margin: 0;
-    list-style: decimal;
-    font-size: 23px;
+  list-style: decimal;
+  font-size: 23px;
 }
